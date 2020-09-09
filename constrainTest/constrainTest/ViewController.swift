@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    private lazy var barbattonItem: UIBarButtonItem = {
+    return UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(goToSecondVC) )
+       
+    }()
+    
     let tableview: UITableView = {
      let view = UITableView()
      view.translatesAutoresizingMaskIntoConstraints = false
@@ -18,6 +24,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationItem.title = "Hello My dear Friend"
+        navigationItem.rightBarButtonItem = barbattonItem
         settingsFortableView()
     }
 
@@ -28,12 +37,21 @@ class ViewController: UIViewController {
     tableview.dataSource = self
     view.addSubview(tableview)
         
-    tableview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+    tableview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
     tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-    tableview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-    tableview.topAnchor.constraint(equalTo:view.topAnchor, constant:  view.layoutMargins.top).isActive = true
+    tableview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+    tableview.topAnchor.constraint(equalTo:view.topAnchor, constant:  0).isActive = true
     }
     
+    @objc func goToSecondVC() {
+        
+    print("go to")
+        let VC = SecondVC()
+       navigationController?.pushViewController(VC, animated: true)
+        //MARK: - переход через презент
+        //VC.modalPresentationStyle = .fullScreen
+        //self.present(VC,animated: true,completion: nil)
+    }
    
     
 }
