@@ -37,10 +37,12 @@ class ViewController: UIViewController {
     tableview.dataSource = self
     view.addSubview(tableview)
         
-    tableview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-    tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-    tableview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-    tableview.topAnchor.constraint(equalTo:view.topAnchor, constant:  0).isActive = true
+//    tableview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+//    tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+//    tableview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+//    tableview.topAnchor.constraint(equalTo:view.topAnchor, constant:  0).isActive = true
+        
+        tableview.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
     }
     
     @objc func goToSecondVC() {

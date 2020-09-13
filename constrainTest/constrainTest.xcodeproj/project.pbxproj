@@ -16,6 +16,7 @@
 		A332AB982501761600A8ABA9 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A332AB962501761600A8ABA9 /* MyCell.xib */; };
 		A34442BC2504DA7A00B82DC1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34442BB2504DA7A00B82DC1 /* Utils.swift */; };
 		A394CEED25025CFC00DCD68D /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394CEEC25025CFC00DCD68D /* SecondVC.swift */; };
+		A3CAF478250933FB0037A428 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF477250933FB0037A428 /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A332AB962501761600A8ABA9 /* MyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
 		A34442BB2504DA7A00B82DC1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A394CEEC25025CFC00DCD68D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		A3CAF477250933FB0037A428 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,7 @@
 			children = (
 				A332AB802501710100A8ABA9 /* AppDelegate.swift */,
 				A332AB822501710100A8ABA9 /* SceneDelegate.swift */,
-				A332AB842501710100A8ABA9 /* ViewController.swift */,
-				A394CEEC25025CFC00DCD68D /* SecondVC.swift */,
+				A3CAF476250933A70037A428 /* Controllers */,
 				A34442BA2504DA5A00B82DC1 /* UtilsForConstrains */,
 				A332AB94250175FD00A8ABA9 /* Cell */,
 				A332AB892501710200A8ABA9 /* Assets.xcassets */,
@@ -90,6 +91,16 @@
 				A34442BB2504DA7A00B82DC1 /* Utils.swift */,
 			);
 			path = UtilsForConstrains;
+			sourceTree = "<group>";
+		};
+		A3CAF476250933A70037A428 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A332AB842501710100A8ABA9 /* ViewController.swift */,
+				A394CEEC25025CFC00DCD68D /* SecondVC.swift */,
+				A3CAF477250933FB0037A428 /* SignUpController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			files = (
 				A332AB852501710100A8ABA9 /* ViewController.swift in Sources */,
 				A34442BC2504DA7A00B82DC1 /* Utils.swift in Sources */,
+				A3CAF478250933FB0037A428 /* SignUpController.swift in Sources */,
 				A394CEED25025CFC00DCD68D /* SecondVC.swift in Sources */,
 				A332AB972501761600A8ABA9 /* MyCell.swift in Sources */,
 				A332AB812501710100A8ABA9 /* AppDelegate.swift in Sources */,

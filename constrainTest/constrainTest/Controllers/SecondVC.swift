@@ -45,21 +45,26 @@ class SecondVC: UIViewController {
     private let loginButtoh: UIButton = {
         let bt = UIButton(type: .system)
         bt.setTitle("Login", for: .normal)
-        bt.setTitleColor(.white, for: .normal)
+        bt.setTitleColor(.red, for: .normal)
         bt.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        bt.titleLabel?.font = UIFont.systemFont(ofSize: 30)
         bt.layer.cornerRadius = 7
         return bt
     }()
-    
+    //MARK: - "кнопка у вас нет аккаунта?"
     private let dontHaveAccoutButton: UIButton =  {
         let but = UIButton(type: .system)
         //первая часть кнопки
-        let arributeTitle = NSMutableAttributedString(string: "Dont hava an account?  ", attributes: [.font:UIFont.systemFont(ofSize: 18), .foregroundColor:  UIColor.lightGray ] )
+        let arributeTitle = NSMutableAttributedString(string: "Dont have an account?  ", attributes: [.font: UIFont.systemFont(ofSize: 18), .foregroundColor:  UIColor.lightGray ] )
         //вторая часть кнопки
-        arributeTitle.append(NSAttributedString(string: "Sigh Up", attributes: [.font: UIFont.systemFont(ofSize: 18) , .foregroundColor: UIColor.systemBlue]))
+        arributeTitle.append(NSAttributedString(string: "Sigh In", attributes: [.font: UIFont.systemFont(ofSize: 18) , .foregroundColor: UIColor.systemBlue]))
         but.setAttributedTitle(arributeTitle, for: .normal)
+        //MARK: - переход на следующий контроллер
+        but.addTarget(self, action: #selector(goToSignUp), for: .touchUpInside)
         return but
     }()
+    
+   
     
     
 
@@ -84,7 +89,15 @@ class SecondVC: UIViewController {
         stack.anchor(top: logocontainerwiev.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 40, left: 20, bottom: 0, right: 20), size: .init(width: 0, height: 180))
         
         view.addSubview(dontHaveAccoutButton)
-        dontHaveAccoutButton.anchor(top: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom:view.safeAreaLayoutGuide.bottomAnchor , trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 0, left: 40, bottom: 10 , right: 40))
+        dontHaveAccoutButton.anchor(top: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom:view.safeAreaLayoutGuide.bottomAnchor , trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 0, left: 40, bottom: 30 , right: 40))
     }
+    //MARK: - func переход
+    
+    @objc private func goToSignUp() {
+        let vc = SignUpController()
+        navigationController?.pushViewController(vc, animated:true)
+        
+    }
+   
 
 }
