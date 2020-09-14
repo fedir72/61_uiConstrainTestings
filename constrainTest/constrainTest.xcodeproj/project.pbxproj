@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A32BA9FA250E2DF000F0E005 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BA9F9250E2DF000F0E005 /* CustomField.swift */; };
 		A332AB812501710100A8ABA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB802501710100A8ABA9 /* AppDelegate.swift */; };
 		A332AB832501710100A8ABA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB822501710100A8ABA9 /* SceneDelegate.swift */; };
 		A332AB852501710100A8ABA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB842501710100A8ABA9 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A32BA9F9250E2DF000F0E005 /* CustomField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
 		A332AB7D2501710100A8ABA9 /* constrainTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = constrainTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332AB802501710100A8ABA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A332AB822501710100A8ABA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A34442BB2504DA7A00B82DC1 /* Utils.swift */,
+				A32BA9F9250E2DF000F0E005 /* CustomField.swift */,
 			);
 			path = UtilsForConstrains;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				A332AB852501710100A8ABA9 /* ViewController.swift in Sources */,
 				A34442BC2504DA7A00B82DC1 /* Utils.swift in Sources */,
 				A3CAF478250933FB0037A428 /* SignUpController.swift in Sources */,
+				A32BA9FA250E2DF000F0E005 /* CustomField.swift in Sources */,
 				A394CEED25025CFC00DCD68D /* SecondVC.swift in Sources */,
 				A332AB972501761600A8ABA9 /* MyCell.swift in Sources */,
 				A332AB812501710100A8ABA9 /* AppDelegate.swift in Sources */,

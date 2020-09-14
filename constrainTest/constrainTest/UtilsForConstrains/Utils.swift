@@ -9,6 +9,51 @@
 import Foundation
 
 import UIKit
+//MARK: -  bicolor text Button
+extension UIButton {
+    class func BicolorButton(textPart1: String,textPart2: String) -> UIButton {
+         let but = UIButton(type: .system)
+                 //первая часть кнопки
+                 let arributeTitle = NSMutableAttributedString(string: textPart1, attributes: [.font: UIFont.systemFont(ofSize: 18), .foregroundColor:  UIColor.lightGray ] )
+                 //вторая часть кнопки
+                 arributeTitle.append(NSAttributedString(string: textPart2, attributes: [.font: UIFont.systemFont(ofSize: 18) , .foregroundColor: UIColor.systemBlue]))
+                 but.setAttributedTitle(arributeTitle, for: .normal)
+                 //MARK: - переход на следующий контроллер
+                 //but.addTarget(self, action: #selector(goToSignIn), for: .touchUpInside)
+           
+                 return but    }
+}
+
+extension UIButton {
+    
+    
+//MARK: - ( extension UIButton )создание кнопки
+    
+    class func setupButton(title: String,backColor: UIColor) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = backColor
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
+        button.layer.cornerRadius = 20
+        return button
+    }
+}
+
+//MARK: -
+
+extension UITextField {
+    class func setupTextField(placeholder: String,secureText: Bool?) -> UITextField {
+        let lbl = CustomField(padding: 16) //применение метода CustomField
+        lbl.placeholder = placeholder
+        lbl.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        //lbl.borderStyle = .roundedRect
+        lbl.layer.cornerRadius = 20
+        lbl.isSecureTextEntry = secureText!
+        lbl.font = UIFont.systemFont(ofSize: 20)
+        return lbl
+    }
+}
 
 extension UIColor {
   // расширение для цвета

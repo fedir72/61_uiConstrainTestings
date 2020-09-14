@@ -15,69 +15,22 @@ class SignUpController: UIViewController {
     fileprivate let plusPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
-        btn.layer.cornerRadius = btn.frame.width/2
+        //btn.layer.cornerRadius = btn.frame.width/2
         btn.backgroundColor = .white
         return btn
     }()
-    
-    private let emailTextField: UITextField = {
-       let tF = UITextField()
-        tF.placeholder = " Email..."
-        tF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        tF.borderStyle = .roundedRect
-        tF.font = UIFont.systemFont(ofSize: 23)
-        return tF
-    }()
-    
-     private let fullNameTextField: UITextField = {
-          let tF = UITextField()
-           tF.placeholder = " Full name..."
-           tF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-           tF.borderStyle = .roundedRect
-           tF.font = UIFont.systemFont(ofSize: 23)
-           return tF
-       }()
-    
-     private let nickNameTextField: UITextField = {
-          let tF = UITextField()
-           tF.placeholder = " Email..."
-           tF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-           tF.borderStyle = .roundedRect
-           tF.font = UIFont.systemFont(ofSize: 23)
-           return tF
-       }()
-    
-     private let passWordTextField: UITextField = {
-          let tF = UITextField()
-           tF.placeholder = " Password..."
-           tF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-           tF.borderStyle = .roundedRect
-           tF.font = UIFont.systemFont(ofSize: 23)
-           return tF
-       }()
-    
-     private let signUpButtoh: UIButton = {
-           let bt = UIButton(type: .system)
-           bt.setTitle(" SignUp...", for: .normal)
-           bt.setTitleColor(.red, for: .normal)
-           bt.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-           bt.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-           bt.layer.cornerRadius = 7
-           return bt
-       }()
-    
-      //MARK: - "кнопка у вас уже есть аккаунт?"
-    
+    //MARK: - TextFields
+    private let emailTextField = UITextField.setupTextField(placeholder: " Email...", secureText: false)
+    private let fullNameTextField = UITextField.setupTextField(placeholder: " Full name...", secureText: false)
+    private let nickNameTextField = UITextField.setupTextField(placeholder: " Your nick...", secureText: false)
+    private let passWordTextField = UITextField.setupTextField(placeholder: " Password...", secureText: true)
+    //MARK: - SetUpButton
+     private let signUpButtoh = UIButton.setupButton(title: "Sign Up", backColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+        
+    //MARK: - "кнопка у вас уже есть аккаунт?" 
       private let allreadyHaveAccoutButton: UIButton =  {
-          let but = UIButton(type: .system)
-          //первая часть кнопки
-          let arributeTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [.font: UIFont.systemFont(ofSize: 18), .foregroundColor:  UIColor.lightGray ] )
-          //вторая часть кнопки
-          arributeTitle.append(NSAttributedString(string: "Sigh In", attributes: [.font: UIFont.systemFont(ofSize: 18) , .foregroundColor: UIColor.systemBlue]))
-          but.setAttributedTitle(arributeTitle, for: .normal)
-          //MARK: - переход на следующий контроллер
+          let but = UIButton.BicolorButton(textPart1: "Already have an account?  ", textPart2: "Sigh In")
           but.addTarget(self, action: #selector(goToSignIn), for: .touchUpInside)
-    
           return but
       }()
     
@@ -93,8 +46,9 @@ class SignUpController: UIViewController {
         view.addSubview(plusPhotoButton)
         plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor , leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,padding: .init(top: 0, left: 40, bottom: 0, right: 40))
         
-       let stack = UIStackView(arrangedSubviews: [emailTextField,fullNameTextField,
-                                                nickNameTextField,passWordTextField,signUpButtoh])
+        let stack = UIStackView(arrangedSubviews: [emailTextField,fullNameTextField,
+                                                 nickNameTextField,passWordTextField,
+                                                 signUpButtoh])
         stack.axis = .vertical
         stack.spacing = 16
         stack.distribution = .fillEqually
@@ -108,7 +62,8 @@ class SignUpController: UIViewController {
     
     //MARK: -  func goToPreviousVC
     @objc private func goToSignIn() {
-        navigationController?.popViewController(animated: true)
+       // navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 
 }

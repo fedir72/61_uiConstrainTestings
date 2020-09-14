@@ -18,56 +18,25 @@ class SecondVC: UIViewController {
         logo.contentMode = .scaleAspectFill
         view.addSubview(logo)
         logo.anchor(top: nil, leading: nil, bottom: nil, trailing: nil,padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: .init(width: 200, height: 60) )
-        logo.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logo.centerInSuperView()
         view.backgroundColor = UIColor.rgb(red: 0, green: 120, blue: 175)
         return view
     }()
     
-        private let emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "  Email..."
-        tf.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        tf.borderStyle = .roundedRect
-        tf.font = UIFont.systemFont(ofSize: 18)
-        return tf
-        }()
+    //MARK: - TextFields
+    private let emailTextField = UITextField.setupTextField(placeholder: "Email...", secureText: false)
+    private let passwordTextField = UITextField.setupTextField(placeholder: "Password...", secureText: true)
     
-    private let passwordTextField: UITextField = {
-    let tf = UITextField()
-    tf.placeholder = "  Password..."
-    tf.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-    tf.borderStyle = .roundedRect
-    tf.font = UIFont.systemFont(ofSize: 18)
-    return tf
-    }()
-    
-    private let loginButtoh: UIButton = {
-        let bt = UIButton(type: .system)
-        bt.setTitle("Login", for: .normal)
-        bt.setTitleColor(.red, for: .normal)
-        bt.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        bt.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        bt.layer.cornerRadius = 7
-        return bt
-    }()
+    //MARK: - LoginButton
+    private let loginButtoh = UIButton.setupButton(title: "Login", backColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+        
     //MARK: - "кнопка у вас нет аккаунта?"
     private let dontHaveAccoutButton: UIButton =  {
-        let but = UIButton(type: .system)
-        //первая часть кнопки
-        let arributeTitle = NSMutableAttributedString(string: "Dont have an account?  ", attributes: [.font: UIFont.systemFont(ofSize: 18), .foregroundColor:  UIColor.lightGray ] )
-        //вторая часть кнопки
-        arributeTitle.append(NSAttributedString(string: "Sigh In", attributes: [.font: UIFont.systemFont(ofSize: 18) , .foregroundColor: UIColor.systemBlue]))
-        but.setAttributedTitle(arributeTitle, for: .normal)
-        //MARK: - переход на следующий контроллер
+        let but = UIButton.BicolorButton(textPart1: "Dont have an account?  ", textPart2: "Sigh In")
         but.addTarget(self, action: #selector(goToSignUp), for: .touchUpInside)
         return but
     }()
-    
-   
-    
-    
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -80,6 +49,9 @@ class SecondVC: UIViewController {
         navigationItem.title = "Second VC"
         view.addSubview(logocontainerwiev)
         logocontainerwiev.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing:view.trailingAnchor , padding: .init(top: 87, left: 5, bottom: 0, right: 5), size: .init(width: 0, height: 150))
+        
+        
+      
         
         let stack = UIStackView(arrangedSubviews: [emailTextField,passwordTextField,loginButtoh])
         stack.axis = .vertical
@@ -95,7 +67,11 @@ class SecondVC: UIViewController {
     
     @objc private func goToSignUp() {
         let vc = SignUpController()
-        navigationController?.pushViewController(vc, animated:true)
+        //презентер с полным отображением
+        //navigationController?.pushViewController(vc, animated:true)
+        //let nvc = UINavigationController(rootViewController: vc)
+        //nvc.modalPresentationStyle = .fullScreen
+         present(vc,animated: true,completion: nil )
         
     }
    
