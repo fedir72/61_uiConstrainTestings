@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32059482242BDBFCE920A5C2 /* Pods_constrainTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98A15FC5FB03FEA06CEFE31 /* Pods_constrainTest.framework */; };
 		A32BA9FA250E2DF000F0E005 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BA9F9250E2DF000F0E005 /* CustomField.swift */; };
+		A330AA52250F4761009C20AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A330AA51250F4761009C20AC /* GoogleService-Info.plist */; };
 		A332AB812501710100A8ABA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB802501710100A8ABA9 /* AppDelegate.swift */; };
 		A332AB832501710100A8ABA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB822501710100A8ABA9 /* SceneDelegate.swift */; };
 		A332AB852501710100A8ABA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332AB842501710100A8ABA9 /* ViewController.swift */; };
@@ -21,7 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F541EC4E88EFB6A02871395 /* Pods-constrainTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-constrainTest.release.xcconfig"; path = "Target Support Files/Pods-constrainTest/Pods-constrainTest.release.xcconfig"; sourceTree = "<group>"; };
+		A0E421CA862BC408478194FF /* Pods-constrainTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-constrainTest.debug.xcconfig"; path = "Target Support Files/Pods-constrainTest/Pods-constrainTest.debug.xcconfig"; sourceTree = "<group>"; };
 		A32BA9F9250E2DF000F0E005 /* CustomField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
+		A330AA51250F4761009C20AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A332AB7D2501710100A8ABA9 /* constrainTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = constrainTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332AB802501710100A8ABA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A332AB822501710100A8ABA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		A34442BB2504DA7A00B82DC1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A394CEEC25025CFC00DCD68D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		A3CAF477250933FB0037A428 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		C98A15FC5FB03FEA06CEFE31 /* Pods_constrainTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_constrainTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32059482242BDBFCE920A5C2 /* Pods_constrainTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		587A0EC7130EA6F41EFEBB3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C98A15FC5FB03FEA06CEFE31 /* Pods_constrainTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A332AB742501710100A8ABA9 = {
 			isa = PBXGroup;
 			children = (
 				A332AB7F2501710100A8ABA9 /* constrainTest */,
 				A332AB7E2501710100A8ABA9 /* Products */,
+				F43D14D86EACA6C32D395F26 /* Pods */,
+				587A0EC7130EA6F41EFEBB3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +91,7 @@
 				A332AB892501710200A8ABA9 /* Assets.xcassets */,
 				A332AB8B2501710200A8ABA9 /* LaunchScreen.storyboard */,
 				A332AB8E2501710200A8ABA9 /* Info.plist */,
+				A330AA51250F4761009C20AC /* GoogleService-Info.plist */,
 			);
 			path = constrainTest;
 			sourceTree = "<group>";
@@ -106,6 +124,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F43D14D86EACA6C32D395F26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0E421CA862BC408478194FF /* Pods-constrainTest.debug.xcconfig */,
+				8F541EC4E88EFB6A02871395 /* Pods-constrainTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A332AB912501710200A8ABA9 /* Build configuration list for PBXNativeTarget "constrainTest" */;
 			buildPhases = (
+				065D6595F9431033238E01F2 /* [CP] Check Pods Manifest.lock */,
 				A332AB792501710100A8ABA9 /* Sources */,
 				A332AB7A2501710100A8ABA9 /* Frameworks */,
 				A332AB7B2501710100A8ABA9 /* Resources */,
+				447981B2E72591014E7534B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,12 +195,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				A332AB8D2501710200A8ABA9 /* LaunchScreen.storyboard in Resources */,
+				A330AA52250F4761009C20AC /* GoogleService-Info.plist in Resources */,
 				A332AB982501761600A8ABA9 /* MyCell.xib in Resources */,
 				A332AB8A2501710200A8ABA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		065D6595F9431033238E01F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-constrainTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		447981B2E72591014E7534B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-constrainTest/Pods-constrainTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-constrainTest/Pods-constrainTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-constrainTest/Pods-constrainTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A332AB792501710100A8ABA9 /* Sources */ = {
@@ -318,6 +391,7 @@
 		};
 		A332AB922501710200A8ABA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E421CA862BC408478194FF /* Pods-constrainTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +410,7 @@
 		};
 		A332AB932501710200A8ABA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F541EC4E88EFB6A02871395 /* Pods-constrainTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
