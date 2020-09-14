@@ -41,6 +41,7 @@ class SecondVC: UIViewController {
         super.viewDidLoad()
        
         configureComponents()
+        setupGesture()
     }
     
     private func configureComponents() {
@@ -66,14 +67,22 @@ class SecondVC: UIViewController {
     //MARK: - func переход
     
     @objc private func goToSignUp() {
-        let vc = SignUpController()
+         let vc = SignUpController()
         //презентер с полным отображением
         //navigationController?.pushViewController(vc, animated:true)
-        //let nvc = UINavigationController(rootViewController: vc)
-        //nvc.modalPresentationStyle = .fullScreen
-         present(vc,animated: true,completion: nil )
+         let nvc = UINavigationController(rootViewController: vc)
+         nvc.modalPresentationStyle = .fullScreen
+         present(nvc,animated: true,completion: nil )
         
     }
-   
+    
+      //MARK: - жест одиночный тап (hide keyboard)
+      private func setupGesture() {
+          view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
+      }
+      //MARK: - конец изменеий вью
+      @objc fileprivate func handleTapDismiss() {
+          view.endEditing(true)
+      }
 
 }
