@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
     //MARK: - Properties
+    
+    var imageSelected = false
+    
     
     private var selectPhotoButton: UIButton = {
        let btn = UIButton()
@@ -19,15 +22,23 @@ class SignUpController: UIViewController {
         btn.setTitleColor(.black, for: .normal)
         btn.layer.borderWidth = 3
         btn.layer.borderColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        btn.addTarget( self, action: #selector(selectPhoto), for: .touchUpInside)
         return btn
     }()
+    //переход на выбор картинки
+    @objc fileprivate func selectPhoto() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
     
     
     //MARK: - TextFields
     private let emailTextField = UITextField.setupTextField(placeholder: " Email...", secureText: false)
     private let fullNameTextField = UITextField.setupTextField(placeholder: " Full name...", secureText: false)
     private let nickNameTextField = UITextField.setupTextField(placeholder: " Your nick...", secureText: false)
-    private let passWordTextField = UITextField.setupTextField(placeholder: " Password...", secureText: false)
+    private let passWordTextField = UITextField.setupTextField(placeholder: " Password...", secureText: true)
     //MARK: - SetUpButton
      private let signUpButtoh = UIButton.setupButton(title: "Sign Up", backColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
         
@@ -44,6 +55,26 @@ class SignUpController: UIViewController {
         configureComponents()
         setupGesture()
     }
+    
+    //MARK: - UIImagePicker
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else {
+          imageSelected = false
+            return
+            }
+       imageSelected = true
+        //MARK: - при выборе картинки для кнопки
+        selectPhotoButton.layer.cornerRadius = selectPhotoButton.frame.width/2
+        selectPhotoButton.layer.masksToBounds = true
+       // selectPhotoButton.layer.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        selectPhotoButton.layer.borderWidth = 3
+        selectPhotoButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        selectPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     //MARK: - stack for button and labels
     lazy var stack = UIStackView(arrangedSubviews: [emailTextField,fullNameTextField,
                                                     nickNameTextField,passWordTextField,

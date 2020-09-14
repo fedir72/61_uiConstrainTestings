@@ -36,6 +36,7 @@ extension UIButton {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
         button.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
         button.layer.cornerRadius = 20
+        button.isEnabled = false //кнопка не работает
         return button
     }
 }

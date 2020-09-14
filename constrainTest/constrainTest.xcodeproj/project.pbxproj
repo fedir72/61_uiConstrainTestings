@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -86,7 +86,7 @@
 				A332AB802501710100A8ABA9 /* AppDelegate.swift */,
 				A332AB822501710100A8ABA9 /* SceneDelegate.swift */,
 				A3CAF476250933A70037A428 /* Controllers */,
-				A34442BA2504DA5A00B82DC1 /* UtilsForConstrains */,
+				A34442BA2504DA5A00B82DC1 /* Utils */,
 				A332AB94250175FD00A8ABA9 /* Cell */,
 				A332AB892501710200A8ABA9 /* Assets.xcassets */,
 				A332AB8B2501710200A8ABA9 /* LaunchScreen.storyboard */,
@@ -105,13 +105,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A34442BA2504DA5A00B82DC1 /* UtilsForConstrains */ = {
+		A34442BA2504DA5A00B82DC1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				A34442BB2504DA7A00B82DC1 /* Utils.swift */,
 				A32BA9F9250E2DF000F0E005 /* CustomField.swift */,
 			);
-			path = UtilsForConstrains;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A3CAF476250933A70037A428 /* Controllers */ = {
@@ -130,7 +130,6 @@
 				A0E421CA862BC408478194FF /* Pods-constrainTest.debug.xcconfig */,
 				8F541EC4E88EFB6A02871395 /* Pods-constrainTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
