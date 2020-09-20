@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     @objc func goToSecondVC() {
         
     print("go to")
-        let VC = SecondVC()
+        let VC = MainTabVC()
        navigationController?.pushViewController(VC, animated: true)
         //MARK: - переход через презент
         //VC.modalPresentationStyle = .fullScreen

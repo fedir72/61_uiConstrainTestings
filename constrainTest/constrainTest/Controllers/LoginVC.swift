@@ -1,5 +1,5 @@
 //
-//  SecondVC.swift
+//  LoginVC.swift
 //  constrainTest
 //
 //  Created by fedir on 04.09.2020.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-class SecondVC: UIViewController {
+class LoginVC: UIViewController {
     
     //MARK: - properties
     
@@ -28,7 +29,7 @@ class SecondVC: UIViewController {
     private let passwordTextField = UITextField.setupTextField(placeholder: "Password...", secureText: true)
     
     //MARK: - LoginButton
-    private let loginButtoh = UIButton.setupButton(title: "Login", backColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+    private let loginButtoh = UIButton.setupButton(title: "Login", backColor: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
         
     //MARK: - "кнопка у вас нет аккаунта?"
     private let dontHaveAccoutButton: UIButton =  {
@@ -42,14 +43,66 @@ class SecondVC: UIViewController {
        
         configureComponents()
         setupGesture()
+        
+        handlers()
+        
+    }
+    //MARK: - проверка введения пароля и кнопка
+    private func handlers() {
+        emailTextField.addTarget(self, action: #selector(formvalidation), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(formvalidation), for: .editingChanged)
+        loginButtoh.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+    }
+    //MARK: - проверка авторизации
+    @objc private func handleLogin() {
+        // print("handle login")
+        guard let email = emailTextField.text,
+            let pass = passwordTextField.text else {return}
+        //проверка на наличие юзера с такими параметрами
+        Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+            if let error = error {
+                 //MARK: - alert
+                   let avc = UIAlertController(title: error.localizedDescription, message: nil, preferredStyle: .alert)
+                   let action = UIAlertAction(title: "Exit", style: .destructive, handler: nil)
+                   avc.addAction(action)
+                   self.present(avc, animated: true, completion: nil)
+
+                print("Error: user hasnt found",error.localizedDescription)
+                return
+            }else{
+                //MARK: - удачный вход
+                print("Successfuly signed in")
+                let mvc = MainTabVC()
+                mvc.modalPresentationStyle = .fullScreen
+                self.present(mvc, animated: true, completion: nil)
+                
+            }
+        }
+        
     }
     
-    private func configureComponents() {
+    //MARK: - проверка заполнения полей
+    @objc private func formvalidation() {
+       guard emailTextField.hasText,
+        passwordTextField.hasText,
+        passwordTextField.text!.count > 5
+                else {
+                self.loginButtoh.isEnabled = false
+                self.loginButtoh.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+                return }
         
+        loginButtoh.isEnabled = true
+        loginButtoh.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        print("Registration Done")
+    }
+    
+    //MARK: - настройки текстфилдов
+    private func configureComponents() {
+        //navigationBar is hide
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
-        navigationItem.title = "Second VC"
         view.addSubview(logocontainerwiev)
-        logocontainerwiev.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing:view.trailingAnchor , padding: .init(top: 87, left: 5, bottom: 0, right: 5), size: .init(width: 0, height: 150))
+        logocontainerwiev.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing:view.trailingAnchor , padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 150))
         
         
       
